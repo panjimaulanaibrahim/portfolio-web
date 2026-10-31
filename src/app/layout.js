@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 // Fonts are stored inside the project (src/fonts), so builds never depend on Google Fonts.
 
@@ -98,7 +99,10 @@ export default function RootLayout({ children }) {
           <style>{".site-loader{display:none}.reveal{opacity:1;transform:none}"}</style>
         </noscript>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }

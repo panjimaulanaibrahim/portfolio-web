@@ -13,6 +13,7 @@ export default function Footer() {
           <p className="text-sm text-subtle">
             © {year} {profile.name}
           </p>
+          <p className="text-xs text-faint">This site uses Google Analytics to count visits.</p>
         </div>
 
         <nav aria-label="Footer">

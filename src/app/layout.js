@@ -27,11 +27,56 @@ const jetbrainsMono = localFont({
   display: "swap",
 });
 
+const siteTitle = "Panji Maulana Ibrahim | Maintenance Engineer";
+const siteDescription =
+  "Less downtime, smarter maintenance. Portfolio of Panji Maulana Ibrahim, a Maintenance Engineer who keeps production running and builds tools that make maintenance work faster.";
+
+// Title and description for Google, plus the preview card shown when the link is shared
+// (WhatsApp, LinkedIn, X). Preview image: public/og.jpg (1200 x 630).
+// Browser tab icons: src/app/favicon.ico, icon.png and apple-icon.png (picked up automatically).
 export const metadata = {
   metadataBase: new URL("https://panjimaulana.web.app"),
-  title: "Panji Maulana Ibrahim | Maintenance Engineer",
-  description:
-    "Less downtime, smarter maintenance. Portfolio of Panji Maulana Ibrahim, Maintenance Engineer in automotive components manufacturing.",
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: "Panji Maulana Ibrahim",
+  authors: [{ name: "Panji Maulana Ibrahim" }],
+  keywords: [
+    "Panji Maulana Ibrahim",
+    "Maintenance Engineer",
+    "Mechanical Engineering",
+    "PLC",
+    "Preventive Maintenance",
+    "Portfolio",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Panji Maulana Ibrahim",
+    title: siteTitle,
+    description: siteDescription,
+    locale: "en_US",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Panji Maulana Ibrahim, Maintenance Engineer. Think BIG, Act BOLD.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og.jpg"],
+  },
+  robots: { index: true, follow: true },
+};
+
+export const viewport = {
+  themeColor: "#05070d",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }) {

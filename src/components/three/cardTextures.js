@@ -3,6 +3,7 @@
 
 import * as THREE from "three";
 import { profile } from "@/data/profile";
+import { QR_MATRIX } from "@/data/qr";
 
 const CARD_PX = { w: 1000, h: 1400 };
 
@@ -10,8 +11,6 @@ const CARD_PX = { w: 1000, h: 1400 };
 // at the same spot (100 px of 1400 = 0.2 of the 2.8-unit card height; radius 45 px = 0.09 units).
 export const CARD_HOLE = { fromTop: 100, radius: 45 };
 
-// Decorative QR pattern (1 = dark cell). A real, scannable QR can replace it later.
-const QR = ["1110111", "1010101", "1110111", "0000000", "1110101", "1010010", "1110101"];
 
 function cssFont(variable, fallback) {
   const value = getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
@@ -141,11 +140,12 @@ function drawFront(display, mono, photo) {
   ctx.beginPath();
   ctx.roundRect(qx, qy, qrSize, qrSize, 12);
   ctx.fill();
-  const cell = (qrSize - 24) / 7;
+  // Real QR code that opens the website
+  const cell = (qrSize - 20) / QR_MATRIX.length;
   ctx.fillStyle = "#0b1224";
-  QR.forEach((row, r) =>
+  QR_MATRIX.forEach((row, r) =>
     row.split("").forEach((bit, c) => {
-      if (bit === "1") ctx.fillRect(qx + 12 + c * cell, qy + 12 + r * cell, cell + 0.5, cell + 0.5);
+      if (bit === "1") ctx.fillRect(qx + 10 + c * cell, qy + 10 + r * cell, cell + 0.5, cell + 0.5);
     })
   );
   drawEyelet(ctx);

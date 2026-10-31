@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { QR_PATH } from "@/data/qr";
 
 export default function IdCard() {
   return (
@@ -53,13 +54,17 @@ export default function IdCard() {
               <span className="font-mono text-[10px] tracking-[0.12em] text-faint">DEPT</span>
               <span className="font-mono text-xs text-body">{profile.department.toUpperCase()}</span>
             </div>
-            {/* Decorative QR pattern. A real, scannable QR can replace it in Phase 6. */}
-            <svg aria-hidden="true" width="44" height="44" viewBox="0 0 7 7" className="rounded bg-fg p-[3px]">
-              <path
-                fill="#0b1224"
-                fillRule="evenodd"
-                d="M0 0h3v3H0zM4 0h3v3H4zM0 4h3v3H0zM1 1v1h1V1zM5 1v1h1V1zM1 5v1h1V5zM4 4h1v1H4zM6 4h1v1H6zM5 5h1v1H5zM4 6h1v1H4zM6 6h1v1H6z"
-              />
+            {/* Scannable QR code that opens the website */}
+            <svg
+              role="img"
+              aria-label="QR code for panjimaulana.web.app"
+              width="52"
+              height="52"
+              viewBox="-2 -2 33 33"
+              shapeRendering="crispEdges"
+              className="rounded bg-fg"
+            >
+              <path fill="#0b1224" d={QR_PATH} />
             </svg>
           </div>
         </div>

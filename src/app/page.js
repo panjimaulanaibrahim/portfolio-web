@@ -1,69 +1,58 @@
-import Image from "next/image";
+// TEMPORARY test page for step 4.1.
+// It checks that colors, fonts and data files load correctly.
+// It will be replaced by the real sections from step 4.2 onward.
+
+import { profile, stats } from "@/data/profile";
+import { experience } from "@/data/experience";
+import { skillGroups } from "@/data/skills";
+import { certifications } from "@/data/certifications";
+import { education } from "@/data/education";
+import { playlist } from "@/data/playlist";
+
+const swatches = [
+  ["ground", "bg-ground"],
+  ["surface", "bg-surface"],
+  ["line", "bg-line"],
+  ["muted", "bg-muted"],
+  ["label", "bg-label"],
+  ["accent", "bg-accent"],
+  ["accent-light", "bg-accent-light"],
+  ["success", "bg-success"],
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="mx-auto flex max-w-5xl flex-col gap-10 px-8 py-20">
+      <p className="font-mono text-xs tracking-[0.14em] text-label">
+        STEP 4.1 / FOUNDATION TEST
+      </p>
+
+      <div className="flex flex-col gap-3">
+        <p className="font-display text-2xl font-medium text-accent">Hi, I&apos;m</p>
+        <h1 className="font-display text-6xl font-bold tracking-tight text-heading">
+          {profile.name}
+        </h1>
+        <p className="font-display text-xl font-semibold text-accent-light">
+          {profile.slogan}
+        </p>
+        <p className="max-w-xl text-lg leading-relaxed text-muted">{profile.intro}</p>
+      </div>
+
+      <div className="grid grid-cols-4 gap-3 sm:grid-cols-8">
+        {swatches.map(([name, cls]) => (
+          <div key={name} className="flex flex-col gap-2">
+            <div className={`h-16 rounded-lg border border-line-strong ${cls}`} />
+            <span className="font-mono text-xs text-subtle">{name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="rounded-2xl border border-line bg-surface/80 p-6 font-mono text-sm text-body">
+        <p>Data check:</p>
+        <p>{stats.length} stats · {experience.length} jobs · {skillGroups.length} skill groups</p>
+        <p>{certifications.length} certifications · {playlist.songs.length} songs</p>
+        <p>Education: {education.school}, GPA {education.gpa}</p>
+      </div>
+    </main>
   );
 }

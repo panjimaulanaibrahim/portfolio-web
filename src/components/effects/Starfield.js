@@ -22,7 +22,7 @@ export default function Starfield() {
     let frameId = 0;
 
     function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width * dpr;
@@ -93,16 +93,18 @@ export default function Starfield() {
         ctx.lineTo(tailX, tailY);
         ctx.stroke();
 
-        // Glowing head
-        ctx.save();
+        // Glowing head (a soft halo plus a bright core; cheaper than canvas shadowBlur)
+        ctx.globalAlpha = fade * 0.25;
+        ctx.fillStyle = "#9ec1ff";
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, 5, 0, Math.PI * 2);
+        ctx.fill();
         ctx.globalAlpha = fade;
-        ctx.shadowColor = "#9ec1ff";
-        ctx.shadowBlur = 14;
         ctx.fillStyle = "#ffffff";
         ctx.beginPath();
         ctx.arc(m.x, m.y, 1.8, 0, Math.PI * 2);
         ctx.fill();
-        ctx.restore();
+        ctx.globalAlpha = 1;
       }
     }
 

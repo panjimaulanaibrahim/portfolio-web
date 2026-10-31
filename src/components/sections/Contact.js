@@ -1,7 +1,7 @@
 import { profile, socials } from "@/data/profile";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
-import ContactForm from "@/components/ui/ContactForm";
+import CommentWall from "@/components/ui/CommentWall";
 import { ArrowUpRightIcon, DownloadIcon } from "@/components/ui/icons";
 import Reveal from "@/components/effects/Reveal";
 
@@ -40,13 +40,13 @@ export default function Contact() {
             </ul>
 
             <Button href={profile.cvPath} download className="mt-2">
-              Download CV (PDF) <DownloadIcon />
+              {profile.cvPath ? "Download CV" : "CV coming soon"} {profile.cvPath && <DownloadIcon />}
             </Button>
           </Reveal>
 
-          {/* Right: message form */}
+          {/* Right: public comment wall */}
           <Reveal delay={150} className="min-w-0 lg:flex-[1.2]">
-            <ContactForm />
+            <CommentWall />
           </Reveal>
         </div>
       </div>

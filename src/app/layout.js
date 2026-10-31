@@ -39,7 +39,20 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Skip the loading screen instantly if it was already shown in this browser session */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('pmi-loaded')==='1')document.documentElement.classList.add('loaded-before')}catch(e){}",
+          }}
+        />
+        <noscript>
+          <style>{".site-loader{display:none}.reveal{opacity:1;transform:none}"}</style>
+        </noscript>
+      </head>
       <body>{children}</body>
     </html>
   );

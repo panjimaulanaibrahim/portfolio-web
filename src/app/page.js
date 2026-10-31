@@ -11,10 +11,12 @@ import Education from "@/components/sections/Education";
 import PlaylistSection from "@/components/sections/PlaylistSection";
 import Contact from "@/components/sections/Contact";
 import Starfield from "@/components/effects/Starfield";
+import SiteLoader from "@/components/effects/SiteLoader";
 
 export default function Home() {
   return (
     <>
+      <SiteLoader />
       <Starfield />
       <div className="relative z-10">
         <Navbar />

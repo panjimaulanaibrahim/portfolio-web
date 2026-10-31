@@ -1,9 +1,10 @@
 import { profile, socials } from "@/data/profile";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
-import IdCard from "@/components/ui/IdCard";
+import HeroCard from "@/components/ui/HeroCard";
+import HeroLanyard from "@/components/ui/HeroLanyard";
 import Reveal from "@/components/effects/Reveal";
-import Typewriter from "@/components/effects/Typewriter";
+import ScrambleText from "@/components/effects/ScrambleText";
 import { ArrowRightIcon, DownloadIcon, socialIcons } from "@/components/ui/icons";
 
 export default function Hero() {
@@ -20,7 +21,10 @@ export default function Hero() {
         className="pointer-events-none absolute -right-40 -top-52 h-[760px] w-[760px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.22),rgba(37,99,235,0)_65%)]"
       />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-5 pb-24 pt-32 md:flex-row md:px-8 md:pb-32 md:pt-40">
+      {/* 3D lanyard card across the whole hero, behind the text (desktop only) */}
+      <HeroLanyard />
+
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-12 px-5 pb-24 pt-32 md:flex-row md:px-8 md:pb-32 md:pt-40">
         {/* Left column: text */}
         <div className="flex w-full min-w-0 flex-1 flex-col gap-6">
           <Reveal>
@@ -40,20 +44,29 @@ export default function Hero() {
             <span className="rounded-lg border border-line-strong bg-line/60 px-3.5 py-2 font-mono text-xs tracking-[0.08em] text-fg md:text-sm">
               {profile.role.toUpperCase()}
             </span>
-            <Typewriter
+            <ScrambleText
               text={profile.slogan}
-              startDelay={900}
+              startOnLoad
+              delay={400}
+              duration={1300}
               className="inline-flex items-center font-display text-lg font-semibold text-accent-light md:text-xl"
             />
           </Reveal>
 
           <Reveal delay={300}>
-            <p className="max-w-[520px] text-base leading-relaxed text-muted md:text-[17px]">{profile.intro}</p>
+            <ScrambleText
+              as="p"
+              text={profile.intro}
+              startOnLoad
+              delay={700}
+              duration={1800}
+              className="max-w-[520px] text-base leading-relaxed text-muted md:text-[17px]"
+            />
           </Reveal>
 
           <Reveal delay={400} className="flex flex-col gap-3 sm:flex-row">
             <Button href={profile.cvPath} download>
-              Download CV <DownloadIcon />
+              {profile.cvPath ? "Download CV" : "CV coming soon"} {profile.cvPath && <DownloadIcon />}
             </Button>
             <Button href="#experience" variant="secondary">
               View Experience <ArrowRightIcon />
@@ -84,9 +97,13 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Right column: ID card */}
-        <Reveal delay={300} className="flex w-full justify-center md:-mt-24 md:w-auto md:basis-[360px]">
-          <IdCard />
+        {/* Right column: ID card (3D on desktop). On desktop it spans the full hero height
+            so the lanyard can hang from the top edge. */}
+        <Reveal
+          delay={300}
+          className="relative flex w-full justify-center md:-mb-32 md:-mt-40 md:w-auto md:basis-[400px] md:self-stretch"
+        >
+          <HeroCard />
         </Reveal>
       </div>
     </section>

@@ -7,13 +7,13 @@ export const profile = {
   role: "Maintenance Engineer",
   slogan: "Think BIG, Act BOLD.",
   intro:
-    "Less downtime, smarter maintenance. I keep automotive production running and build tools that make the work faster.",
+    "Less downtime, smarter maintenance. I keep production running and build tools that make the work faster.",
   about:
     "I am a Maintenance Engineer in automotive components manufacturing who treats every breakdown as a problem to eliminate, not just repair. Beyond keeping CNC machines, hydraulic presses, special purpose machines, and robotic automation running, I build my own digital tools to make maintenance smarter, driven by a goal to bridge the shop floor with modern technology.",
   location: "Based in Indonesia",
   department: "MTC / Engineering",
   email: "panjimaulanaibrahim@gmail.com",
-  cvPath: "/cv/CV-Panji-Maulana-Ibrahim.pdf",
+  cvPath: null, // CV not ready yet: buttons show "CV coming soon". When ready, put the PDF in public/cv/ and set "/cv/CV-Panji-Maulana-Ibrahim.pdf"
   contactIntro:
     "Have a question or an idea to discuss? Email or LinkedIn is the fastest way to reach me.",
   // Web3Forms access key (Phase 6). While empty, the contact form opens the visitor's email app instead.

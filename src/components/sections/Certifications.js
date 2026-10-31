@@ -2,6 +2,7 @@ import Image from "next/image";
 import { certifications } from "@/data/certifications";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/effects/Reveal";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 // Badge text and color per certificate type
 const typeStyles = {
@@ -27,22 +28,21 @@ export default function Certifications() {
                 key={cert.name}
                 className="flex flex-col overflow-hidden rounded-[14px] border border-line bg-surface/80"
               >
-                {/* Clicking the image opens the full certificate in a new tab */}
-                <a
-                  href={cert.image}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View certificate: ${cert.name}`}
-                  className="relative block h-44 border-b border-line"
+                {/* Clicking the image shows the full certificate enlarged on this page */}
+                <ImageLightbox
+                  src={cert.image}
+                  alt={`${cert.name} certificate`}
+                  label={`View certificate: ${cert.name}`}
+                  className="relative block h-44 w-full border-b border-line"
                 >
                   <Image
                     src={cert.image}
-                    alt={`${cert.name} certificate`}
+                    alt=""
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover object-top transition-opacity hover:opacity-85"
                   />
-                </a>
+                </ImageLightbox>
                 <div className="flex flex-1 flex-col gap-2.5 p-5">
                   <span
                     className={`self-start rounded-full border px-2.5 py-1 font-mono text-[11px] tracking-[0.12em] ${type.className}`}

@@ -80,6 +80,27 @@ body {
   animation: blink 1s steps(1) infinite;
 }
 
+/* Loading screen is skipped on repeat visits within the same session */
+.loaded-before .site-loader {
+  display: none;
+}
+
+/* Gentle sway for the flat ID card (phones, or before the 3D card is ready) */
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+.idcard-sway {
+  transform-origin: top center;
+  animation: sway 5s ease-in-out infinite;
+}
+
 /* Respect visitors who ask their device for less motion */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -92,7 +113,24 @@ body {
     transition: none;
   }
 
-  .type-cursor {
+  .type-cursor,
+  .idcard-sway {
     animation: none;
   }
+
+  .site-loader {
+    display: none;
+  }
+}
+
+/* Enlarged certificate: quick fade in */
+.lightbox-in {
+  animation: lightbox-in 0.25s ease-out;
+}
+@keyframes lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-in { animation: none; }
 }

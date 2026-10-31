@@ -24,6 +24,12 @@ export const stats = [
 
 export const socials = [
   {
+    id: "email",
+    label: "Email",
+    handle: "panjimaulanaibrahim@gmail.com",
+    href: "mailto:panjimaulanaibrahim@gmail.com",
+  },
+  {
     id: "linkedin",
     label: "LinkedIn",
     handle: "linkedin.com/in/panji-maulana-ibrahim",
@@ -40,12 +46,6 @@ export const socials = [
     label: "TikTok",
     handle: "@doubleclutch_pan",
     href: "https://www.tiktok.com/@doubleclutch_pan",
-  },
-  {
-    id: "email",
-    label: "Email",
-    handle: "panjimaulanaibrahim@gmail.com",
-    href: "mailto:panjimaulanaibrahim@gmail.com",
   },
 ];
 

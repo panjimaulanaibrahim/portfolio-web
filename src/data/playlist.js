@@ -1,16 +1,8 @@
-// "Night Shift Playlist": display only, no playback.
+// Playlist section. The track list itself comes from Spotify,
+// so adding or removing songs is done in the Spotify app, not here.
 
 export const playlist = {
-  title: "Night Shift Playlist",
-  songs: [
-    { title: "Anything You Want", artist: "Reality Club" },
-    { title: "Wonderwall", artist: "Oasis" },
-    { title: "Stand By Me", artist: "Oasis" },
-    { title: "Don't Look Back in Anger", artist: "Oasis" },
-    { title: "Chop Suey!", artist: "System of a Down" },
-    { title: "Toxicity", artist: "System of a Down" },
-    { title: "Aerials", artist: "System of a Down" },
-    { title: "B.Y.O.B.", artist: "System of a Down" },
-    { title: "Lonely Day", artist: "System of a Down" },
-  ],
+  spotifyId: "5dATUzpH8I4zF6qFDS9AuA",
+  headline: ["Everything will be fine.", "Just enjoy your process."],
+  description: "Play some music to chill out. Here are some of my favorite songs.",
 };

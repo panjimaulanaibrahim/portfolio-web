@@ -6,12 +6,29 @@ export const education = {
   years: "2020 – 2024",
   gpa: "3.65",
   gpaScale: "4.00",
+  image: "/images/education/graduation.jpg",
+  alt: "Panji receiving his Mechanical Engineering degree at Universitas Sebelas Maret",
 };
 
 export const organizations = [
-  { years: "2023 – 2024", role: "Head of UNS KSE Scholarship Association" },
-  { years: "2022 – 2023", role: "Head of the Gasoline Team, Bengawan Unmanned Vehicle" },
-  { years: "2022 – 2023", role: "Head of KOSAKATA (Komunitas Mahasiswa Kab/Kota Tegal) UNS" },
+  {
+    years: "2023 – 2024",
+    role: "Head of UNS KSE Scholarship Association",
+    image: "/images/organizations/kse.jpg",
+    alt: "KSE scholarship visit to UNDIP, UGM and UNS",
+  },
+  {
+    years: "2022 – 2023",
+    role: "Head of the Gasoline Team, Bengawan Unmanned Vehicle",
+    image: "/images/organizations/bengawan.jpg",
+    alt: "Bengawan Unmanned Vehicle team with the boat prototype at UNS",
+  },
+  {
+    years: "2022 – 2023",
+    role: "Head of KOSAKATA (Komunitas Mahasiswa Kab/Kota Tegal) UNS",
+    image: "/images/organizations/kosakata.jpg",
+    alt: "KOSAKATA UNS members gathering",
+  },
 ];
 
 export const achievement = {
@@ -20,6 +37,7 @@ export const achievement = {
   detail:
     "Also Winner of Fun Battle Fuel Engine Remote Control, Kontes Kapal Cepat Tak Berawak Nasional",
   image: "/images/achievements/kkctbn-2022.jpg",
+  alt: "Bengawan Unmanned Vehicle team with KKCTBN 2022 trophies",
 };
 
 export const publication = {
@@ -30,4 +48,5 @@ export const publication = {
   doi: "10.1051/e3sconf/202346501017",
   url: "https://doi.org/10.1051/e3sconf/202346501017",
   image: "/images/achievements/icimece-2023.jpg",
+  alt: "Research team at the 8th ICIMECE 2023 symposium",
 };

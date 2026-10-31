@@ -2,7 +2,6 @@
 
 export const skillGroups = [
   {
-    code: "G-01",
     name: "Maintenance Engineering",
     items: [
       "Preventive & Corrective Maintenance",
@@ -12,7 +11,6 @@ export const skillGroups = [
     ],
   },
   {
-    code: "G-02",
     name: "Automation & Electrical",
     items: [
       "PLC Programming",
@@ -23,7 +21,6 @@ export const skillGroups = [
     ],
   },
   {
-    code: "G-03",
     name: "Reliability & Improvement",
     items: [
       "Root Cause Analysis",
@@ -33,12 +30,10 @@ export const skillGroups = [
     ],
   },
   {
-    code: "G-04",
     name: "Software",
     items: ["AutoCAD", "Autodesk Inventor", "Python", "Microsoft Excel"],
   },
   {
-    code: "G-05",
     name: "Soft Skills",
     items: [
       "Leadership & Team Coordination",

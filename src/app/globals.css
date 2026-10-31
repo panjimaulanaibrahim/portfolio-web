@@ -51,9 +51,48 @@ body {
   color: #ffffff;
 }
 
+/* Scroll animation (see components/effects/Reveal.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(48px); /* waiting below: rises up when scrolling down */
+  transition:
+    opacity 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.from-above {
+  transform: translateY(-48px); /* waiting above: drops in when scrolling up */
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Blinking cursor after the typed slogan */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.type-cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
 /* Respect visitors who ask their device for less motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .type-cursor {
+    animation: none;
   }
 }

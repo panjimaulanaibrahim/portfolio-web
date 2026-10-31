@@ -14,6 +14,10 @@ export const profile = {
   department: "MTC / Engineering",
   email: "panjimaulanaibrahim@gmail.com",
   cvPath: "/cv/CV-Panji-Maulana-Ibrahim.pdf",
+  contactIntro:
+    "Have a question or an idea to discuss? Email or LinkedIn is the fastest way to reach me.",
+  // Web3Forms access key (Phase 6). While empty, the contact form opens the visitor's email app instead.
+  web3formsKey: "",
 };
 
 export const stats = [
